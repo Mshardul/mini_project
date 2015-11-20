@@ -121,6 +121,3 @@ sb=Scrollbar(root, orient=VERTICAL, elementborderwidth=5)
 #STATUS BAR
 st = Label(root, text='created by: shardul lingwal', bd=2, relief=SUNKEN, anchor=W)
 st.pack(side=BOTTOM, fill=X)
-
-
-

@@ -1,4 +1,3 @@
-# mini_project
 from tkinter import *
 import tkinter.messagebox
 import csv
@@ -19,17 +18,21 @@ def fetch():#x):
     a='list of top '
     a=a+e2.get()+' '+x+' names in the year '+e1.get()
     Label(root, text=(a), anchor=CENTER).pack(fill=X)
+    #name=[]
+    listbox = Listbox(root, yscrollcommand=scrollbar.set)
     for i in f:
         if j==0:
             j=j+1
             continue
         elif j<int(e2.get()):
             j=j+1
-            Label(root, text=(j,i)).pack()
+            listbox.insert(END,str(i))
             
            # Label(rf, text=(j,i.2,i[3])).pack()
         else:
             break
+    listbox.pack(side=LEFT, fill=BOTH)
+    scrollbar.config(command=listbox.yview)
     f.close()
     
 def click():
@@ -115,8 +118,11 @@ e2.pack()
 go=Button(root, text='GO', command=click)
 go.pack()
 
+
 #SCROLLBAR
-sb=Scrollbar(root, orient=VERTICAL, elementborderwidth=5)
+scrollbar = Scrollbar(root)
+scrollbar.pack(side=RIGHT, fill=Y)
+
 
 #STATUS BAR
 st = Label(root, text='created by: shardul lingwal', bd=2, relief=SUNKEN, anchor=W)
